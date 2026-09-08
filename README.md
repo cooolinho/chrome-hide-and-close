@@ -1,76 +1,61 @@
-# chrome-hide-and-close
+<h1 align="center">🪟 Chrome Hide and Close</h1>
 
-AutoHotkey v2-Skript, das ein **bestimmtes Chrome-Fenster** per Hotkey minimiert – auch wenn das Fenster nicht im Fokus liegt.
+<p align="center">
+  <em>AutoHotkey script to minimize or close Chrome windows via global hotkey, even when unfocused</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/AutoHotkey-334455?style=for-the-badge&logo=autohotkey&logoColor=white" alt="AutoHotkey">
+</p>
+
+<p align="center">
+  <a href="README.de.md">🇩🇪 Deutsche Version</a>
+</p>
 
 ---
 
-## Voraussetzungen
+## 📖 About
 
-| Tool | Version | Download |
+A lightweight AutoHotkey v2 automation script that lets you minimize or close specific Chrome windows using a customizable global hotkey—without requiring the window to be in focus.
+
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
 |---|---|---|
-| [AutoHotkey](https://www.autohotkey.com/) | **v2.0+** | https://www.autohotkey.com/download/ |
-| Google Chrome | beliebig | – |
+| ![AutoHotkey](https://img.shields.io/badge/AutoHotkey-334455?style=flat-square&logo=autohotkey&logoColor=white) AutoHotkey | 2.0+ | Script runtime |
 
----
+## ✨ Features
 
-## Konfiguration
+- **Global hotkey** — Works even when Chrome is not in focus
+- **Customizable** — Easy configuration at the top of the script
+- **Simple** — Single-file implementation
 
-Alle Einstellungen befinden sich am Anfang der Datei `MinimizeChromeWindow.ahk`:
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [AutoHotkey v2.0+](https://www.autohotkey.com/download/)
+- Google Chrome (any version)
+
+### Installation
+
+1. Download and install [AutoHotkey v2.0+](https://www.autohotkey.com/download/)
+2. Clone or download `MinimizeChromeWindow.ahk` from this repository
+3. Double-click the `.ahk` file to run it
+
+### Configuration
+
+Edit the configuration at the top of `MinimizeChromeWindow.ahk`:
 
 ```ahk
-; Hotkey zum Minimieren
-globalHotkey := "F5"
-
-; Titelbestandteil des Zielfensters (Groß-/Kleinschreibung egal)
-targetTitle := "YouTube"
+globalHotkey := "F5"          ; Hotkey to minimize
+targetTitle := "YouTube"       ; Window title substring (case-insensitive)
 ```
 
-### `globalHotkey` – Beispiele
+## 📋 Usage
 
-| Wert | Tastenkombination |
-|---|---|
-| `"F5"` | F5 |
-| `"^F5"` | Strg + F5 |
-| `"!F5"` | Alt + F5 |
-| `"#F5"` | Win + F5 |
-| `"^!y"` | Strg + Alt + Y |
+Once running, press your configured hotkey (default: **F5**) to minimize/close the specified Chrome window.
 
-### `targetTitle` – Beispiele
+## 📄 License
 
-| Wert | Findet … |
-|---|---|
-| `"YouTube"` | Fenster mit „YouTube" im Titel |
-| `"Google Meet"` | Fenster mit Google Meet |
-| `"github.com"` | Fenster mit GitHub im Titel |
-
-> **Tipp:** Den genauen Fenstertitel siehst du im Windows-Taskbar-Tooltip oder mit dem AutoHotkey **Window Spy** (Tray-Menü nach dem Start).
-
----
-
-## Nutzung
-
-1. `MinimizeChromeWindow.ahk` herunterladen.
-2. `globalHotkey` und `targetTitle` nach Wunsch anpassen.
-3. Doppelklick auf die `.ahk`-Datei → Skript läuft im Tray.
-4. Hotkey drücken → das passende Chrome-Fenster wird minimiert, egal ob es gerade im Fokus liegt oder nicht.
-
-### Autostart (optional)
-
-1. `Win + R` → `shell:startup`
-2. Verknüpfung auf `MinimizeChromeWindow.ahk` in den Autostart-Ordner legen.
-
----
-
-## Wie funktioniert die Fensterauswahl?
-
-Das Skript sucht mit
-
-```
-WinExist("<targetTitle> ahk_exe chrome.exe")
-```
-
-nach dem **ersten** Chrome-Fenster, dessen Titel `targetTitle` enthält.
-
-- `ahk_exe chrome.exe` stellt sicher, dass **nur Chrome-Fenster** geprüft werden.
-- Laufen mehrere Chrome-Instanzen, wird das Fenster minimiert, dessen **Titelleiste** den gesetzten String enthält.
-- Das Zielfenster muss **nicht** im Vordergrund liegen.
+Released under the MIT License.
